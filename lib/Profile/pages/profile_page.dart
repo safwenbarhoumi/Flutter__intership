@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../fitness_app/fitness_app_theme.dart';
 import '../user/user.dart';
 import '../widgets/display_image_widget.dart';
 import '../user/user_data.dart';
@@ -15,32 +16,66 @@ import 'edit_phone.dart';
 class ProfilePage extends StatefulWidget {
   @override
   _ProfilePageState createState() => _ProfilePageState();
+  const ProfilePage({Key? key, required this.animationController})
+      : super(key: key);
+  final AnimationController? animationController;
 }
 
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final user = UserData.myUser;
+    Animation<double>? topBarAnimation;
+    double topBarOpacity = 0.0;
 
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: Column(
         children: [
           AppBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            toolbarHeight: 10,
+            backgroundColor: FitnessAppTheme.white,
+            automaticallyImplyLeading:
+                false, // Set to true if you want a back button
+            elevation: 0.0,
+            flexibleSpace: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: MediaQuery.of(context).padding.top,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: 16,
+                    right: 16,
+                    top: 16 - 8.0 * topBarOpacity,
+                    bottom: 12 - 8.0 * topBarOpacity,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'Edit Profile',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontFamily: FitnessAppTheme.fontName,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 22 + 6 - 6 * topBarOpacity,
+                                letterSpacing: 1.2,
+                                color: FitnessAppTheme.darkerText,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
-          Center(
-              child: Padding(
-                  padding: EdgeInsets.only(bottom: 20),
-                  child: Text(
-                    'Edit Profile',
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w700,
-                      color: Color.fromRGBO(64, 105, 225, 1),
-                    ),
-                  ))),
           InkWell(
               onTap: () {
                 navigateSecondPage(EditImagePage());

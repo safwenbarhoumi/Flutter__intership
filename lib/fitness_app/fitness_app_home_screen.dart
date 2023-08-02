@@ -120,7 +120,8 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                   return;
                 }
                 setState(() {
-                  tabBody = ProfilePage();
+                  tabBody =
+                      ProfilePage(animationController: animationController);
                   //tabBody = aprofile();
                 });
               });

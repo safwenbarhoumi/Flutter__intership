@@ -3,13 +3,19 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
+import 'fitness_app/fitness_app_theme.dart';
+
 class Scan extends StatefulWidget {
   @override
   _ScanState createState() => _ScanState();
+  const Scan({Key? key, required this.animationController}) : super(key: key);
+  final AnimationController? animationController;
 }
 
 class _ScanState extends State<Scan> {
   String _scanBarcode = 'Unknown';
+  Animation<double>? topBarAnimation;
+  double topBarOpacity = 0.0;
 
   @override
   void initState() {
@@ -57,20 +63,50 @@ class _ScanState extends State<Scan> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Scanner',
-          style: TextStyle(
-            fontWeight: FontWeight.w300,
-            fontSize: 22,
-            color: Color.fromARGB(255, 255, 255, 255),
-          ),
-        ),
-        centerTitle: true,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+        backgroundColor: FitnessAppTheme.white.withOpacity(topBarOpacity),
+        automaticallyImplyLeading:
+            false, // Set to true if you want a back button
+        elevation: 0.0,
+        flexibleSpace: CustomScrollView(
+          slivers: <Widget>[
+            SliverPadding(
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).padding.top,
+                left: 6,
+                right: 6,
+                bottom: 2 - 8.0 * topBarOpacity,
+              ),
+              sliver: SliverAppBar(
+                automaticallyImplyLeading: false,
+                backgroundColor:
+                    FitnessAppTheme.white.withOpacity(topBarOpacity),
+                elevation: 0.0,
+                flexibleSpace: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Scanner',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontFamily: FitnessAppTheme.fontName,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 22 + 6 - 6 * topBarOpacity,
+                              letterSpacing: 1.2,
+                              color: FitnessAppTheme.darkerText,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
       body: Builder(builder: (BuildContext context) {

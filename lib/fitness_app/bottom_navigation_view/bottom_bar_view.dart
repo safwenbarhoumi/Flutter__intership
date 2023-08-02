@@ -5,6 +5,7 @@ import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
 
 import '../../main.dart';
+import '../../scan.dart';
 import '../models/tabIcon_data.dart';
 
 class BottomBarView extends StatefulWidget {
@@ -165,9 +166,17 @@ class _BottomBarViewState extends State<BottomBarView>
                           splashColor: Colors.white.withOpacity(0.1),
                           highlightColor: Colors.transparent,
                           focusColor: Colors.transparent,
-                          onTap: widget.addClick,
+                          onTap: () {
+                            Navigator.push<dynamic>(
+                              context,
+                              MaterialPageRoute<dynamic>(
+                                builder: (BuildContext context) => Scan(
+                                    animationController: animationController),
+                              ),
+                            );
+                          },
                           child: Icon(
-                            Icons.add,
+                            Icons.document_scanner,
                             color: FitnessAppTheme.white,
                             size: 32,
                           ),
