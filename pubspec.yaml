@@ -49,6 +49,7 @@ dependencies:
     #latlong: ^0.1.1
     latlong2: ^0.9.0
     #cnic_scanner: ^0.0.3
+    flutter_slidable: ^3.0.0
 
 dev_dependencies:
     flutter_test:

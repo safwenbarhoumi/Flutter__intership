@@ -188,6 +188,32 @@ class HotelDetails extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
+                    // Use ternary operator to set color based on colieState
+                    color: colieState == 'in stock'
+                        ? Colors.indigoAccent[100]
+                        : colieState == 'in return'
+                            ? Colors.red
+                            : colieState == 'delivered'
+                                ? Colors.green
+                                : Colors.grey, // the default color
+
+                    child: Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          buildDetailRow(
+                              Icons.access_time, 'état de Colie', colieState),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  child: Card(
+                    elevation: 20,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                     child: Center(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -208,8 +234,7 @@ class HotelDetails extends StatelessWidget {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          buildDetailRow(
-                              Icons.attach_money, 'Montant', '$amount TND'),
+                          buildDetailRow(Icons.money, 'Montant', '$amount TND'),
                         ],
                       ),
                     ),
@@ -300,7 +325,7 @@ class HotelDetails extends StatelessWidget {
               Text(
                 detail,
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 18,
                 ),
               ),
             ],
@@ -336,7 +361,7 @@ class HotelDetails extends StatelessWidget {
               Text(
                 detail,
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 18,
                 ),
               ),
               SizedBox(height: 4),
@@ -345,7 +370,7 @@ class HotelDetails extends StatelessWidget {
                 child: Text(
                   actionText,
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 17,
                     color: Colors.blue,
                   ),
                 ),

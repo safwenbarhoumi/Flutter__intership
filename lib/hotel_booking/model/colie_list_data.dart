@@ -54,7 +54,7 @@ class HotelListData {
     HotelListData(
       code: '76556309',
       namePerson: 'Salma',
-      phone: 434607660,
+      phone: 43460766,
       reviews: 74,
       amount: 200,
       colieState: 'livré',
@@ -67,7 +67,7 @@ class HotelListData {
     HotelListData(
       code: '86554478',
       namePerson: 'Amine',
-      phone: 32336340,
+      phone: 92336340,
       reviews: 62,
       amount: 60,
       colieState: 'en cours',
@@ -80,7 +80,7 @@ class HotelListData {
     HotelListData(
       code: '86765645',
       namePerson: 'Hassen',
-      phone: 765460980,
+      phone: 96546098,
       reviews: 90,
       amount: 170,
       colieState: 'livré',
@@ -93,7 +93,7 @@ class HotelListData {
     HotelListData(
       code: '875765376',
       namePerson: 'Adem',
-      phone: 212312320,
+      phone: 21231232,
       reviews: 240,
       amount: 200,
       colieState: 'livré',

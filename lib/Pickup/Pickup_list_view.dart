@@ -57,7 +57,7 @@ class PickupsListView extends StatelessWidget {
                               child: Container(
                                 child: Padding(
                                   padding: const EdgeInsets.only(
-                                    left: 16,
+                                    left: 20,
                                     top: 8,
                                     bottom: 8,
                                   ),
@@ -70,9 +70,10 @@ class PickupsListView extends StatelessWidget {
                                         children: [
                                           Icon(
                                             Icons.confirmation_number_outlined,
-                                            color: Colors.cyan,
+                                            color: Colors.blue,
+                                            size: 30,
                                           ),
-                                          SizedBox(width: 4),
+                                          SizedBox(width: 12),
                                           Text(
                                             hotelData.code,
                                             textAlign: TextAlign.left,
@@ -91,10 +92,11 @@ class PickupsListView extends StatelessWidget {
                                         children: <Widget>[
                                           Icon(
                                             Icons
-                                                .attach_money, // Replace with the desired icon
-                                            color: Colors.lightBlue,
+                                                .money, // Replace with the desired icon
+                                            color: Colors.blue,
+                                            size: 30,
                                           ),
-                                          SizedBox(width: 4),
+                                          SizedBox(width: 12),
                                           Text(
                                             '${hotelData.totalAmount} TND',
                                             style: TextStyle(
@@ -110,9 +112,10 @@ class PickupsListView extends StatelessWidget {
                                           Icon(
                                             Icons
                                                 .calendar_month_outlined, // Replace with the desired icon
-                                            color: Colors.lightBlueAccent,
+                                            color: Colors.blue,
+                                            size: 30,
                                           ),
-                                          SizedBox(width: 4),
+                                          SizedBox(width: 12),
                                           Padding(
                                             padding: const EdgeInsets.only(
                                                 top: 4, bottom: 8),
@@ -137,7 +140,7 @@ class PickupsListView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Positioned(
+                  /* Positioned(
                     top: 30,
                     right: 10,
                     child: InkWell(
@@ -147,7 +150,7 @@ class PickupsListView extends StatelessWidget {
                         child: Icon(Icons.add), // Replace with the desired icon
                       ),
                     ),
-                  ),
+                  ),*/
                 ],
               ),
             ),

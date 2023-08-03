@@ -25,7 +25,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final user = UserData.myUser;
-    Animation<double>? topBarAnimation;
+    // Animation<double>? topBarAnimation;
     double topBarOpacity = 0.0;
 
     return Scaffold(

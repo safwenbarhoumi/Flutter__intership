@@ -5,7 +5,7 @@ import '../Profile/pages/profile_page.dart';
 import '../Runsheets/runsheet_home_screen.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'fitness_app_theme.dart';
-import 'my_diary/my_diary_screen.dart';
+import 'my_diary/pie_chart_screen.dart';
 
 class FitnessAppHomeScreen extends StatefulWidget {
   @override

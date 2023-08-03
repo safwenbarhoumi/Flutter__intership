@@ -1,9 +1,9 @@
-import 'package:best_flutter_ui_templates/hotel_booking/hotel_list_view.dart';
-import 'package:best_flutter_ui_templates/hotel_booking/model/hotel_list_data.dart';
+import 'package:best_flutter_ui_templates/hotel_booking/colie_list_view.dart';
+import 'package:best_flutter_ui_templates/hotel_booking/model/colie_list_data.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../fitness_app/fitness_app_theme.dart';
-import 'hotel_app_theme.dart';
+import 'colie_app_theme.dart';
 
 class HotelHomeScreen extends StatefulWidget {
   @override
@@ -52,6 +52,220 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
               hotel.namePerson.toLowerCase().contains(query.toLowerCase()))
           .toList();
     });
+  }
+
+  void _showAddHotelDialog() {
+    //final TextEditingController codeController = TextEditingController();
+    final TextEditingController namePersonController = TextEditingController();
+    final TextEditingController phoneController = TextEditingController();
+    //final TextEditingController reviewsController = TextEditingController();
+    final TextEditingController amountController = TextEditingController();
+    final TextEditingController colieStateController = TextEditingController();
+    final TextEditingController timeController = TextEditingController();
+    final TextEditingController barcodeController = TextEditingController();
+    final TextEditingController recipientInfoController =
+        TextEditingController();
+    final TextEditingController supplierInfoController =
+        TextEditingController();
+    final TextEditingController addressController = TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Ajouter colie'),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(
+                  controller: namePersonController,
+                  decoration: InputDecoration(labelText: 'Name Person'),
+                ),
+                TextField(
+                  controller: phoneController,
+                  keyboardType: TextInputType.number,
+                  maxLength: 8,
+                  decoration: InputDecoration(labelText: 'Phone (8 digits)'),
+                ),
+                TextField(
+                  controller: amountController,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(labelText: 'Amount'),
+                ),
+                TextField(
+                  controller: colieStateController,
+                  decoration: InputDecoration(labelText: 'Colie State'),
+                ),
+                TextField(
+                  controller: timeController,
+                  decoration: InputDecoration(labelText: 'Time'),
+                  onTap: () async {
+                    TimeOfDay? pickedTime = await showTimePicker(
+                      context: context,
+                      initialTime: TimeOfDay.now(),
+                    );
+
+                    if (pickedTime != null) {
+                      timeController.text =
+                          '${pickedTime.hour}:${pickedTime.minute}';
+                    }
+                  },
+                ),
+                TextField(
+                  controller: barcodeController,
+                  decoration: InputDecoration(labelText: 'Barcode'),
+                ),
+                TextField(
+                  controller: recipientInfoController,
+                  decoration: InputDecoration(labelText: 'Recipient Info'),
+                ),
+                TextField(
+                  controller: supplierInfoController,
+                  decoration: InputDecoration(labelText: 'Supplier Info'),
+                ),
+                TextField(
+                  controller: addressController,
+                  decoration: InputDecoration(labelText: 'Address'),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                // Validate fields before adding
+                if (_validateFields(
+                    //codeController.text,
+                    namePersonController.text,
+                    phoneController.text,
+                    //reviewsController.text,
+                    amountController.text,
+                    colieStateController.text,
+                    timeController.text,
+                    barcodeController.text,
+                    recipientInfoController.text,
+                    supplierInfoController.text,
+                    addressController.text)) {
+                  // Add the new hotel to the list
+                  final newHotel = HotelListData(
+                    //code: codeController.text,
+                    namePerson: namePersonController.text,
+                    phone: int.parse(phoneController.text),
+                    //reviews: int.parse(reviewsController.text),
+                    amount: int.parse(amountController.text),
+                    colieState: colieStateController.text,
+                    time: timeController.text,
+                    barcode: barcodeController.text,
+                    recipientInfo: recipientInfoController.text,
+                    supplierInfo: supplierInfoController.text,
+                    address: addressController.text,
+                  );
+                  setState(() {
+                    // Add the new hotel to the hotelList
+                    hotelList.add(newHotel);
+                  });
+                  // Close the dialog
+                  Navigator.of(context).pop();
+                  //Navigator.of(context).pop();
+                }
+              },
+              child: Text('Add'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  // Function to validate fields
+  bool _validateFields(
+      //String code,
+      String namePerson,
+      String phone,
+      //String reviews,
+      String amount,
+      String colieState,
+      String time,
+      String barcode,
+      String recipientInfo,
+      String supplierInfo,
+      String address) {
+    if ( //code.isEmpty ||
+        namePerson.isEmpty ||
+            phone.isEmpty ||
+            //reviews.isEmpty ||
+            amount.isEmpty ||
+            colieState.isEmpty ||
+            time.isEmpty ||
+            barcode.isEmpty ||
+            recipientInfo.isEmpty ||
+            supplierInfo.isEmpty ||
+            address.isEmpty) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Validation Error'),
+            content: Text('All fields are required.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+      return false;
+    }
+
+    if (phone.length != 8) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Validation Error'),
+            content: Text('Phone must be 8 digits.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+      return false;
+    }
+
+    if (!(colieState == 'in stock' ||
+        colieState == 'in return' ||
+        colieState == 'delivered')) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Validation Error'),
+            content: Text(
+                'Colie State must be "in stock", "in return", or "delivered".'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+      return false;
+    }
+
+    return true;
   }
 
   @override
@@ -180,6 +394,10 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                 ),
               ),
             ],
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () => _showAddHotelDialog(),
+            child: Icon(Icons.add),
           ),
         ),
       ),

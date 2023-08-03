@@ -1,9 +1,9 @@
-import 'package:best_flutter_ui_templates/hotel_booking/hotel_app_theme.dart';
+import 'package:best_flutter_ui_templates/hotel_booking/colie_app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../timeline2/timeline2Page.dart';
-import 'hotel_details.dart';
-import 'model/hotel_list_data.dart';
+import 'colie_details.dart';
+import 'model/colie_list_data.dart';
 
 class HotelListView extends StatelessWidget {
   const HotelListView(
@@ -31,7 +31,7 @@ class HotelListView extends StatelessWidget {
                 0.0, 50 * (1.0 - animation!.value), 0.0),
             child: Padding(
               padding: const EdgeInsets.only(
-                  left: 24, right: 24, top: 8, bottom: 16),
+                  left: 16, right: 14, top: 8, bottom: 16),
               child: InkWell(
                 splashColor: Colors.transparent,
                 onTap: () {
@@ -81,7 +81,7 @@ class HotelListView extends StatelessWidget {
                                     child: Container(
                                       child: Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 16, top: 8, bottom: 8),
+                                            left: 20, top: 12, bottom: 12),
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
@@ -90,62 +90,77 @@ class HotelListView extends StatelessWidget {
                                           children: <Widget>[
                                             Row(
                                               children: [
-                                                Icon(Icons
-                                                    .confirmation_number_outlined),
-                                                SizedBox(width: 4),
+                                                Icon(
+                                                  Icons
+                                                      .confirmation_number_outlined,
+                                                  size: 30,
+                                                  color: Colors.blue,
+                                                ),
+                                                SizedBox(width: 10),
                                                 Text(
                                                   hotelData!.code,
                                                   textAlign: TextAlign.left,
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w600,
                                                     fontSize: 22,
+                                                    color: Colors.cyan[900],
                                                   ),
                                                 ),
                                               ],
                                             ),
+                                            SizedBox(height: 4),
                                             Row(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.center,
                                               mainAxisAlignment:
                                                   MainAxisAlignment.start,
                                               children: <Widget>[
-                                                Icon(Icons.person),
+                                                Icon(
+                                                  Icons.person,
+                                                  size: 30,
+                                                  color: Colors.blue,
+                                                ),
+                                                SizedBox(width: 10),
                                                 Text(
                                                   hotelData!.namePerson,
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w600,
                                                     fontSize: 22,
+                                                    color: Colors.cyan[900],
                                                   ),
                                                 ),
                                                 const SizedBox(
-                                                  width: 4,
+                                                  width: 50,
                                                 ),
                                               ],
                                             ),
+                                            SizedBox(height: 4),
                                             Row(
                                               children: [
                                                 InkWell(
-                                                  onTap: () async {
-                                                    await launch(
-                                                        "tel:'${hotelData!.phone.toStringAsFixed(1)}");
-                                                  },
-                                                  child: Icon(Icons.phone),
+                                                  child: Icon(
+                                                    Icons.phone,
+                                                    size: 30,
+                                                    color: Colors.blue,
+                                                  ),
                                                 ),
+                                                SizedBox(width: 10),
                                                 Expanded(
                                                   child: Text(
-                                                    '${hotelData!.phone.toStringAsFixed(1)} ',
+                                                    '${hotelData!.phone.toString()} ',
                                                     overflow:
                                                         TextOverflow.ellipsis,
                                                     style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.w600,
                                                       fontSize: 22,
+                                                      color: Colors.cyan[900],
                                                     ),
                                                   ),
                                                 ),
                                               ],
                                             ),
-                                            Padding(
+                                            /* Padding(
                                               padding:
                                                   const EdgeInsets.only(top: 4),
                                               child: Row(
@@ -159,7 +174,7 @@ class HotelListView extends StatelessWidget {
                                                   ),
                                                 ],
                                               ),
-                                            ),
+                                            ),*/
                                           ],
                                         ),
                                       ),
@@ -180,6 +195,7 @@ class HotelListView extends StatelessWidget {
                                           style: TextStyle(
                                             fontWeight: FontWeight.w600,
                                             fontSize: 22,
+                                            color: Colors.cyan[900],
                                           ),
                                         ),
                                         Text(
@@ -198,7 +214,7 @@ class HotelListView extends StatelessWidget {
                           ],
                         ),
                         Positioned(
-                          top: 58,
+                          top: 71,
                           right: 8,
                           child: Material(
                             color: Colors.transparent,
@@ -214,16 +230,38 @@ class HotelListView extends StatelessWidget {
                                 );
                               },
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.all(4.0),
                                 child: Icon(
+                                  size: 40,
+                                  color: Colors.blue,
                                   Icons.timeline_outlined,
-                                  color: HotelAppTheme.buildLightTheme()
-                                      .primaryColor,
+                                  //color: HotelAppTheme.buildLightTheme().primaryColor,
                                 ),
                               ),
                             ),
                           ),
-                        )
+                        ),
+                        Positioned(
+                          top: 71,
+                          right: 88,
+                          child: MaterialButton(
+                            onPressed: () async {
+                              await launch(
+                                  "tel:'${hotelData!.phone.toStringAsFixed(1)}");
+                            },
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            color: Colors.green,
+                            minWidth: 0,
+                            //height: 38,
+                            child: Icon(
+                              Icons.phone,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
