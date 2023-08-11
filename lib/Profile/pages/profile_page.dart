@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../fitness_app/fitness_app_theme.dart';
+import '../../pick.dart';
 import '../user/user.dart';
 import '../widgets/display_image_widget.dart';
 import '../user/user_data.dart';
@@ -91,6 +92,41 @@ class _ProfilePageState extends State<ProfilePage> {
             child: buildAbout(user),
             flex: 4,
           )*/
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+            child: ElevatedButton(
+              onPressed: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PickScreen()),
+                ),
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Color.fromARGB(255, 255, 255, 255),
+                onPrimary: Color.fromARGB(255, 77, 79, 192),
+                textStyle: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 22,
+                ),
+                padding: EdgeInsets.symmetric(vertical: 18, horizontal: 34),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16.0),
+                ),
+                elevation: 8,
+                shadowColor: Color.fromARGB(255, 21, 0, 255).withOpacity(0.6),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.grid_view_rounded), // Icon added here
+                  SizedBox(
+                      width:
+                          15), // Adjust the spacing between the icon and text
+                  Text('Ajouter  l identité'),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

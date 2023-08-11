@@ -120,8 +120,8 @@ class _ScanState extends State<Scan> {
                 child: ElevatedButton(
                   onPressed: () => scanBarcodeNormal(),
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 241, 236, 236),
-                    onPrimary: Color.fromARGB(255, 77, 79, 192),
+                    primary: Color.fromARGB(255, 255, 255, 255),
+                    onPrimary: Color.fromARGB(255, 8, 12, 229),
                     textStyle: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontSize: 22,
@@ -151,7 +151,7 @@ class _ScanState extends State<Scan> {
                 child: ElevatedButton(
                   onPressed: () => scanQR(),
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 241, 236, 236),
+                    primary: Color.fromARGB(255, 255, 255, 255),
                     onPrimary: Color.fromARGB(255, 51, 0, 255),
                     textStyle: TextStyle(
                       fontWeight: FontWeight.w400,
