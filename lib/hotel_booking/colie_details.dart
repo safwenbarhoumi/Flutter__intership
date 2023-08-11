@@ -171,24 +171,6 @@ class HotelDetails extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: Center(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          buildDetailRow(
-                              Icons.access_time, 'état de Colie', colieState),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  child: Card(
-                    elevation: 20,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    // Use ternary operator to set color based on colieState
                     color: colieState == 'in stock'
                         ? Colors.indigoAccent[100]
                         : colieState == 'in return'
@@ -250,8 +232,8 @@ class HotelDetails extends StatelessWidget {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          buildDetailRow(Icons.person_pin, 'Destinataire Info',
-                              recipientInfo),
+                          buildDetailRow(Icons.person_pin,
+                              'Destinataire \nInfo', recipientInfo),
                         ],
                       ),
                     ),
@@ -268,7 +250,7 @@ class HotelDetails extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           buildDetailRow(Icons.supervisor_account,
-                              'Fournisseur Info', supplierInfo),
+                              'Fournisseur \nInfo', supplierInfo),
                         ],
                       ),
                     ),
@@ -301,19 +283,19 @@ class HotelDetails extends StatelessWidget {
   }
 
   Widget buildDetailRow(IconData iconData, String title, String detail) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+    return Center(
+      //padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
         children: [
-          Icon(
-            iconData,
-            size: 30,
-            color: Colors.blue,
-          ),
           SizedBox(width: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Icon(
+                iconData,
+                size: 40,
+                color: Colors.blue,
+              ),
               Text(
                 title,
                 style: TextStyle(
@@ -341,15 +323,15 @@ class HotelDetails extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
         children: [
-          Icon(
-            iconData,
-            size: 30,
-            color: Colors.blue,
-          ),
           SizedBox(width: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Icon(
+                iconData,
+                size: 30,
+                color: Colors.blue,
+              ),
               Text(
                 title,
                 style: TextStyle(

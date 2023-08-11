@@ -98,7 +98,7 @@ class HotelListView extends StatelessWidget {
                                                 ),
                                                 SizedBox(width: 10),
                                                 Text(
-                                                  hotelData!.code,
+                                                  hotelData!.barcode,
                                                   textAlign: TextAlign.left,
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w600,
@@ -247,7 +247,7 @@ class HotelListView extends StatelessWidget {
                           child: MaterialButton(
                             onPressed: () async {
                               await launch(
-                                  "tel:'${hotelData!.phone.toStringAsFixed(1)}");
+                                  "tel:'${hotelData!.phone.toString()}");
                             },
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(16),

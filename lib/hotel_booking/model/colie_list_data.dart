@@ -60,8 +60,8 @@ class HotelListData {
       colieState: 'livré',
       time: '12:30 PM',
       barcode: '987654321',
-      recipientInfo: 'Recipient Name, Address',
-      supplierInfo: 'Supplier Name, Address',
+      recipientInfo: 'Address',
+      supplierInfo: ' Address',
       address: 'Hotel Address',
     ),
     HotelListData(
@@ -73,8 +73,8 @@ class HotelListData {
       colieState: 'en cours',
       time: '09:00 AM',
       barcode: '654321987',
-      recipientInfo: 'Recipient Name, Address',
-      supplierInfo: 'Supplier Name, Address',
+      recipientInfo: 'Address',
+      supplierInfo: 'Address',
       address: 'Hotel Address',
     ),
     HotelListData(
@@ -86,8 +86,8 @@ class HotelListData {
       colieState: 'livré',
       time: '02:00 PM',
       barcode: '789456123',
-      recipientInfo: 'Recipient Name, Address',
-      supplierInfo: 'Supplier Name, Address',
+      recipientInfo: 'Address',
+      supplierInfo: 'Address',
       address: 'Hotel Address',
     ),
     HotelListData(
@@ -99,8 +99,8 @@ class HotelListData {
       colieState: 'livré',
       time: '03:30 PM',
       barcode: '456123789',
-      recipientInfo: 'Recipient Name, Address',
-      supplierInfo: 'Supplier Name, Address',
+      recipientInfo: 'Address',
+      supplierInfo: 'Address',
       address: 'Hotel Address',
     ),
   ];

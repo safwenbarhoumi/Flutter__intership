@@ -2,6 +2,7 @@ import 'package:best_flutter_ui_templates/hotel_booking/colie_list_view.dart';
 import 'package:best_flutter_ui_templates/hotel_booking/model/colie_list_data.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import '../fitness_app/fitness_app_theme.dart';
 import 'colie_app_theme.dart';
 
@@ -80,26 +81,28 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
               children: [
                 TextField(
                   controller: namePersonController,
-                  decoration: InputDecoration(labelText: 'Name Person'),
+                  decoration: InputDecoration(labelText: 'Nom du client'),
                 ),
                 TextField(
                   controller: phoneController,
                   keyboardType: TextInputType.number,
                   maxLength: 8,
-                  decoration: InputDecoration(labelText: 'Phone (8 digits)'),
+                  decoration:
+                      InputDecoration(labelText: 'Téléphone (8 chiffres)'),
                 ),
                 TextField(
                   controller: amountController,
                   keyboardType: TextInputType.number,
-                  decoration: InputDecoration(labelText: 'Amount'),
+                  decoration: InputDecoration(labelText: 'Le montant (TND)'),
                 ),
                 TextField(
                   controller: colieStateController,
-                  decoration: InputDecoration(labelText: 'Colie State'),
+                  decoration:
+                      InputDecoration(labelText: ' L' ' état de Colie '),
                 ),
                 TextField(
                   controller: timeController,
-                  decoration: InputDecoration(labelText: 'Time'),
+                  decoration: InputDecoration(labelText: 'Temps'),
                   onTap: () async {
                     TimeOfDay? pickedTime = await showTimePicker(
                       context: context,
@@ -114,19 +117,19 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                 ),
                 TextField(
                   controller: barcodeController,
-                  decoration: InputDecoration(labelText: 'Barcode'),
+                  decoration: InputDecoration(labelText: 'Code à barre'),
                 ),
                 TextField(
                   controller: recipientInfoController,
-                  decoration: InputDecoration(labelText: 'Recipient Info'),
+                  decoration: InputDecoration(labelText: 'Destinataire Info'),
                 ),
                 TextField(
                   controller: supplierInfoController,
-                  decoration: InputDecoration(labelText: 'Supplier Info'),
+                  decoration: InputDecoration(labelText: 'Fournisseur Info'),
                 ),
                 TextField(
                   controller: addressController,
-                  decoration: InputDecoration(labelText: 'Address'),
+                  decoration: InputDecoration(labelText: 'Addresse'),
                 ),
               ],
             ),
@@ -134,7 +137,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: Text('Cancel'),
+              child: Text('Annuler'),
             ),
             TextButton(
               onPressed: () {
@@ -174,7 +177,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                   //Navigator.of(context).pop();
                 }
               },
-              child: Text('Add'),
+              child: Text('Ajouter'),
             ),
           ],
         );
@@ -206,62 +209,63 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
             recipientInfo.isEmpty ||
             supplierInfo.isEmpty ||
             address.isEmpty) {
-      showDialog(
+      Alert(
         context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text('Validation Error'),
-            content: Text('All fields are required.'),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: Text('OK'),
-              ),
-            ],
-          );
-        },
-      );
+        type: AlertType.info,
+        title: "oops...",
+        desc: "Tous les champs sont requis.",
+        buttons: [
+          DialogButton(
+            child: Text(
+              "Ok",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            onPressed: () => Navigator.pop(context),
+            width: 120,
+          ),
+        ],
+      ).show();
       return false;
     }
-
     if (phone.length != 8) {
-      showDialog(
+      Alert(
         context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text('Validation Error'),
-            content: Text('Phone must be 8 digits.'),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: Text('OK'),
-              ),
-            ],
-          );
-        },
-      );
+        type: AlertType.info,
+        title: "oops...",
+        desc: "Le téléphone doit comporter 8 chiffres.",
+        buttons: [
+          DialogButton(
+            child: Text(
+              "Ok",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            onPressed: () => Navigator.pop(context),
+            width: 120,
+          ),
+        ],
+      ).show();
       return false;
     }
 
     if (!(colieState == 'in stock' ||
         colieState == 'in return' ||
         colieState == 'delivered')) {
-      showDialog(
+      Alert(
         context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text('Validation Error'),
-            content: Text(
-                'Colie State must be "in stock", "in return", or "delivered".'),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: Text('OK'),
-              ),
-            ],
-          );
-        },
-      );
+        type: AlertType.info,
+        title: "oops...",
+        desc: "Colie State doit être en stock, en retour, ou livré.",
+        buttons: [
+          DialogButton(
+            child: Text(
+              "Ok",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            onPressed: () => Navigator.pop(context),
+            width: 120,
+          ),
+        ],
+      ).show();
       return false;
     }
 
@@ -397,7 +401,12 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () => _showAddHotelDialog(),
-            child: Icon(Icons.add),
+            child: Icon(
+              Icons.add,
+              size: 30,
+              color: HotelAppTheme.buildLightTheme().backgroundColor,
+              opticalSize: 23,
+            ),
           ),
         ),
       ),
