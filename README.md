@@ -1,7 +1,7 @@
-## E-build Delivery App
+E-build Delivery App
 E-build Logo
 
-# E-build Delivery App is a Flutter project developed by E-build, a delivery service company. This application is designed to streamline the delivery process, allowing delivery personnel to efficiently manage and track deliveries. It provides features such as managing runsheets, searching for parcels by barcode, applying filters based on a calendar, tracking the timeline of parcels, and more.
+E-build Delivery App is a Flutter project developed by E-build, a delivery service company. This application is designed to streamline the delivery process, allowing delivery personnel to efficiently manage and track deliveries. It provides features such as managing runsheets, searching for parcels by barcode, applying filters based on a calendar, tracking the timeline of parcels, and more.
 
 Features
 1. Runsheets Management
@@ -66,4 +66,4 @@ We welcome contributions to the E-build Delivery App project. Please review our 
 License
 This project is licensed under the MIT License.
 
-© 2023 E-build.
+© 2023 E-build
