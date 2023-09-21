@@ -40,7 +40,7 @@ Clone the repository:
 
 bash
 Copy code
-git clone https://github.com/e-build/delivery-app.git
+git clone (https://github.com/safwenbarhoumi/Flutter__intership)
 Navigate to the project directory:
 
 bash
