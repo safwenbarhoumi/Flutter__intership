@@ -160,21 +160,6 @@ class HotelListView extends StatelessWidget {
                                                 ),
                                               ],
                                             ),
-                                            /* Padding(
-                                              padding:
-                                                  const EdgeInsets.only(top: 4),
-                                              child: Row(
-                                                children: <Widget>[
-                                                  Text(
-                                                    ' ${hotelData!.reviews} Reviews',
-                                                    style: TextStyle(
-                                                        fontSize: 14,
-                                                        color: Colors.grey
-                                                            .withOpacity(0.8)),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),*/
                                           ],
                                         ),
                                       ),

@@ -69,11 +69,10 @@ class _EditImagePageState extends State<EditImagePage> {
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Update functionality here
                     _pickImage();
                   },
                   child: const Text(
-                    'Update',
+                    'Update new image',
                     style: TextStyle(fontSize: 15),
                   ),
                 ),
