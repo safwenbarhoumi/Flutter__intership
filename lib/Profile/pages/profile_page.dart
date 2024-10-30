@@ -102,8 +102,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               },
               style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(255, 255, 255, 255),
-                onPrimary: Color.fromARGB(255, 77, 79, 192),
+                foregroundColor: Color.fromARGB(255, 77, 79, 192),
+                backgroundColor: Color.fromARGB(255, 255, 255, 255),
                 textStyle: TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: 22,
