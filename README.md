@@ -1,69 +1,73 @@
-E-build Delivery App
-E-build Logo
+###📦 E-build Delivery App 🚚
 
-E-build Delivery App is a Flutter project developed by E-build, a delivery service company. This application is designed to streamline the delivery process, allowing delivery personnel to efficiently manage and track deliveries. It provides features such as managing runsheets, searching for parcels by barcode, applying filters based on a calendar, tracking the timeline of parcels, and more.
+The E-build Delivery App is a Flutter project developed by E-build, a delivery service company focused on optimizing the delivery process for delivery personnel. This application offers a range of features to simplify managing and tracking deliveries, from organizing runsheets to barcode scanning and visual analytics.
 
-Features
-1. Runsheets Management
+##✨ Features :
+#📑 Runsheets Management
+
 View and manage a list of runsheets.
-Each runsheet contains multiple parcels with detailed customer information, including:
-Name and surname
-Identification
-Location
-Destination
-Phone number
-And more
-2. Parcel Search
-Easily search for parcels using barcode scanning.
-3. Calendar Filters
-Filter parcels based on a calendar to streamline delivery schedules.
-4. Parcel Timeline
-Track the status of parcels, including:
-In stock
-Delivered
-Returns
-5. Pickup Interface
-Access a pickup interface for dispatching parcels.
-6. Pie Charts
-Visualize key parcel statistics through pie charts, including:
-Total parcels
-Delivered parcels
-Return parcels
-Parcels in stock
-And more
-7. User Profile
-Allow delivery personnel to update their profile information.
-Installation
+Each runsheet includes detailed information for each parcel, such as:
+Customer Name and Surname
+Identification Number
+Location and Destination
+Contact Information 📞
+Streamlines task organization for delivery agents.
+
+#🔍 Parcel Search
+
+Quickly search for parcels by scanning barcodes for instant lookup.
+#📅 Calendar Filters
+
+Filter parcels based on a calendar to organize delivery schedules efficiently.
+#⏱️ Parcel Timeline Tracking
+
+Keep track of parcel statuses:
+* In Stock
+* Delivered
+* Returned
+#📦 Pickup Interface
+
+Dedicated interface for managing parcel pickups.
+📊 Pie Charts for Analytics
+
+Visualize delivery stats through pie charts, including:
+Total Parcels
+Delivered Parcels
+Returned Parcels
+Parcels in Stock
+👤 User Profile Management
+
+Allows delivery personnel to update and manage their profile information.
+# ⚙️ Setup Instructions
 To get started with the E-build Delivery App, follow these steps:
 
-Clone the repository:
-
+Clone the Repository:
 bash
-Copy code
-git clone (https://github.com/safwenbarhoumi/Flutter__intership)
-Navigate to the project directory:
-
-bash
-Copy code
-cd delivery-app
-Install dependencies:
-
-bash
-Copy code
+```
+git clone https://github.com/safwenbarhoumi/Flutter__intership
+```
+Navigate to the Project Directory:
+```
+cd Flutter__intership
+```
+Install Dependencies:
+```
 flutter pub get
-Run the app:
-
-bash
-Copy code
+```
+Run the App:
+```
 flutter run
-Usage
-Upon launching the app, users can log in using their credentials.
-The main dashboard provides access to various features and interfaces, including runsheets, parcel search, calendar filters, parcel timeline, pickup interface, pie charts, and user profile.
-Use the barcode scanner icon to scan QR codes and barcodes for parcel management.
-Contributing
-We welcome contributions to the E-build Delivery App project. Please review our contribution guidelines for more information.
+```
 
-License
-This project is licensed under the MIT License.
+##💡 Ensure you have Flutter installed and configured properly on your system before running the app.
 
-© 2023 E-build
+#🚀 Usage
+* Log In: Enter your credentials on the login screen to access the dashboard.
+* Main Dashboard: From the dashboard, access various features:
+* Runsheets for organized delivery management.
+* Parcel Search using the barcode scanner icon.
+* Calendar Filters to streamline the delivery schedule.
+* Timeline to view the status history of parcels.
+* Scan Barcodes: Use the scanner icon to scan QR codes and barcodes for quick parcel management.
+
+
